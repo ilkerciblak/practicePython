@@ -18,9 +18,11 @@ grade = 29 → do not round!
 
 
 def gradingStudents(grades):
-    for grade in grades:
-        if grade
-
+    for i,grade in enumerate(grades):
+        sub = (5*(grade//5+1))-grade
+        if sub < 3 and grade >= 38:
+            grades[i] = 5*(grade//5+1)
+    return "\n".join(map(str, grades))
 if __name__ == "__main__":
 
     grades_count = int( input())
