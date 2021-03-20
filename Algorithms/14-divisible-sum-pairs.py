@@ -22,7 +22,12 @@ number of (i, j) pairs where i< j and arr[i]+ arr[j] is divisible by "k".
 #endregion
 
 def divisibleSumPairs(n, k, ar):
-    return sum(sum())
+    res = 0
+    for i, num1 in enumerate(ar):
+        for num2 in ar[i+1:]:
+            if (num1 + num2) % k == 0:
+                res += 1
+    return res
 
 if __name__ == "__main__":
     n, k = map(int, input().rstrip().split())
