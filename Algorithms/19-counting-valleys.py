@@ -20,16 +20,18 @@ and print the number of valleys walked through.
 #endregion
 
 def countingValleys(steps, path):
-    countValleys = 0
     hikerLevel = 0
+    countValley = 0
     for i in range(steps):
         if path[i] == "U":
             hikerLevel += 1
+            if hikerLevel == 0:
+                countValley += 1
         elif path[i] == "D":
             hikerLevel -= 1
         
-
-    return countValleys
+        
+    return countValley
 
 if __name__ == "__main__":
     from itertools import permutations
