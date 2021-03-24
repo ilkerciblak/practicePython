@@ -33,14 +33,28 @@
 
 def formingMagicSquare(s):
     
-    sTranspose = list()
-    for i in range(3):
-        elm = []
-        for j in range(3):
-            elm.append(s[j][i])
-        sTranspose.append([elm])
-  
-
+    magicMatrixList = [
+            [[4, 3, 8], [9, 5, 1], [2, 7, 6]],
+            [[8, 1, 6], [3, 5, 7], [4, 9, 2]],
+            [[6, 1, 8], [7, 5, 3], [2, 9, 4]],
+            [[4, 9, 2], [3, 5, 7], [8, 1, 6]],
+            [[2, 9, 4], [7, 5, 3], [6, 1, 8]], 
+            [[8, 3, 4], [1, 5, 9], [6, 7, 2]], 
+            [[6, 7, 2], [1, 5, 9], [8, 3, 4]], 
+            [[2, 7, 6], [9, 5, 1], [4, 3, 8]],
+            ]
+    
+    costs = []
+    for singleMagicMatrix in magicMatrixList:
+        cost = 0
+        for singleMagicMatrixRow, sRow in zip(singleMagicMatrix, s):
+            for num1, num2 in zip(singleMagicMatrixRow, sRow):
+                if num1 != num2:
+                    cost += abs(num1-num2)
+        costs.append(cost)
+    return min(costs)
+    
+   
 if __name__ == "__main__":
     s = list()
     for _ in range(3):
