@@ -46,9 +46,7 @@ def climbingLeaderboard(ranked, player):
                 continue
             ranks.append(len(leaderBoardScoresList)-rank)
     return ranks
-    '''
-
-    '''
+  
     while kullandığın bir çözüm bulman gerek, alice her seferinde daha iyi bir skor yapıyor unutma
     '''
 if __name__ == '__main__':
