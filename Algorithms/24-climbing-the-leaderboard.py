@@ -32,23 +32,15 @@
 
 def climbingLeaderboard(ranked, player):
     leaderBoardScoresSet = set(ranked)
-    leaderBoardScoresList = sorted(list(leaderBoardScoresSet))
+    leaderBoardScoresList = sorted(list(leaderBoardScoresSet), reverse= True)
     ranks = []
+    i = len(leaderBoardScoresList)
     for playerScore in player:
-        leaderBoardScoresList.append(playerScore)
-        ranks.append(sorted(leaderBoardScoresList, reverse=True).index(playerScore)+1)
-    
+        while i and playerScore >= leaderBoardScoresList[i-1]:
+            i -= 1
+        ranks.append(i+1)
     return ranks
-    '''
-    for playerScore in player:
-        for rank,rankedScore in enumerate(leaderBoardScoresList):
-            if playerScore > rankedScore:
-                continue
-            ranks.append(len(leaderBoardScoresList)-rank)
-    return ranks
-  
-    while kullandığın bir çözüm bulman gerek, alice her seferinde daha iyi bir skor yapıyor unutma
-    '''
+   
 if __name__ == '__main__':
     ranked_count = int(input().strip())
 
